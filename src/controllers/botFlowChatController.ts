@@ -41,7 +41,7 @@ export const chatFlowResponse = async (
     // console.log("req : ", req.body.chatId)
     const index = pc.index("dfccchatbot");
     const namespace = index.namespace("pinecone-gpt-test");
-    //dfcc-vector-db
+    //pinecone-gpt-test
 
     let userChatId = req.body.chatId || "";
     let language = req.body.language;
@@ -529,7 +529,7 @@ Standalone question:`;
 //   });
 
 //   const ids = fileIds.map(file => file.file_id);
-// const fetchResult = await index.namespace('dfcc-vector-db').fetch(ids);
+// const fetchResult = await index.namespace('pinecone-gpt-test').fetch(ids);
 // const documents = Object.values(fetchResult.records).map(record => {
 //     if (record.metadata) {
 //         return record.metadata.Title;

@@ -22,7 +22,7 @@ interface ChatEntry {
 }
 
 const index = pc.index("dfccchatbot");
-const namespace = index.namespace('dfcc-vector-db')
+const namespace = index.namespace('pinecone-gpt-test')
 let kValue = 2
 
 const translate = new Translate({ key: process.env.GOOGLE_APPLICATION_CREDENTIALS }); 

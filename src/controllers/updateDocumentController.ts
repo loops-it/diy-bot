@@ -27,7 +27,7 @@ export const updateDocuments = async (req: Request, res: Response, next: Functio
           model: "text-embedding-ada-002",
           input: text,
         });
-        await index.namespace('dfcc-vector-db').update({
+        await index.namespace('pinecone-gpt-test').update({
             "id": id, 
             "values": embedding.data[0].embedding,
             "metadata": {"Title": title, "Text": text}
@@ -44,7 +44,7 @@ export const updateDocuments = async (req: Request, res: Response, next: Functio
             model: "text-embedding-ada-002",
             input: cleanedText,
         });
-        await index.namespace('dfcc-vector-db').update({
+        await index.namespace('pinecone-gpt-test').update({
             "id": id, 
             "values": embedding.data[0].embedding,
             "metadata": {"Title": title, "Text": cleanedText}
