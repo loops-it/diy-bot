@@ -1,5 +1,6 @@
 /node_modules
 .env
+.env.development.local
 
 /test.html
 
@@ -10,3 +11,4 @@
 
 /src/views/flow-test.ejs
 
+.vercel

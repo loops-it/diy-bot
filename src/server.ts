@@ -46,6 +46,7 @@ import { getFlowPage } from './controllers/flowController';
 import { getBotFlowPage } from './controllers/botFlowChatView';
 import { chatFlowResponse } from './controllers/botFlowChatController';
 import { chatFlowData } from './controllers/botFlowData';
+import { upload } from './controllers/flowImageUpload';
 const app = express();
 app.use(cookieParser());
 // Set up view engine
@@ -84,6 +85,8 @@ app.get('/flow-sinhala',adminLogged, async (req: Request, res: Response) => {
 app.get('/flow-tamil',adminLogged, async (req: Request, res: Response) => {
   res.render('flow-tamil');
 });
+app.post('/upload-flow-image', upload);
+
 
 app.use('/bot-flow-test', getBotFlowPage);
 app.post('/api/chat-response-flow', chatFlowResponse);
