@@ -117,9 +117,10 @@ body {
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
-  background-color: #eef0f8; }
+  background-color: #eef0f8; 
+}
 
 /*---basic---*/
 a {
@@ -884,7 +885,7 @@ code {
   border: 1px solid #d5dfea !important; }
 
 .border-primary {
-  border-color: #6993ff !important; }
+  border-color: #1C73D4 !important; }
 
 .border-secondary {
   border-color: #e4e6ef !important; }
@@ -20654,7 +20655,7 @@ Height property
     box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0); }
     .main-header .push-btn:hover, .main-header .push-btn:active, .main-header .push-btn:focus, .main-header .full-screen:hover, .main-header .full-screen:active, .main-header .full-screen:focus, .main-header .svg-bt-icon:hover, .main-header .svg-bt-icon:active, .main-header .svg-bt-icon:focus {
       background-color: rgba(0, 0, 0, 0.03);
-      color: #6993ff; }
+      color: #1C73D4; }
   .main-header .push-btn img, .main-header .full-screen img, .main-header .svg-bt-icon img {
     height: 20px;
     width: 20px;
@@ -22264,7 +22265,7 @@ body .main-header .navbar .nav > li.search-box > a:hover, body .main-header .nav
   background-color: #F5F5F5; }
 
 .chat-logs::-webkit-scrollbar-thumb {
-  background-color: #6993ff; }
+  background-color: #1C73D4; }
 
 @media only screen and (max-width: 500px) {
   .chat-logs {
@@ -24483,7 +24484,7 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
       box-shadow: none; }
     .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
       color: #ffffff;
-      background-color: #6993ff; }
+      background-color: #1C73D4 }
     .dataTables_wrapper .dataTables_paginate .paginate_button:active {
       outline: 0;
       background-color: #737373; }
@@ -26896,7 +26897,7 @@ textarea.form-control {
   color: #475f7b;
   white-space: nowrap; }
   .bootstrap-select .dropdown-menu li a:hover, .bootstrap-select .dropdown-menu li a:focus {
-    color: #6993ff;
+    color: #1C73D4;
     background: #d5dfea; }
 .bootstrap-select .show > .dropdown-menu {
   display: block; }
@@ -30288,7 +30289,7 @@ td .label {
     position: absolute;
     content: " ";
     width: 2px;
-    background-color: #6993ff;
+    background-color: #1C73D4;
     left: 50%;
     margin-left: -1.5px; }
   #timeline .clearFix {
