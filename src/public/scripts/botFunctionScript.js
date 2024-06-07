@@ -655,6 +655,9 @@ document
         if (selectedLanguageLocal === "Singlish") {
             question = questionInput.value;
             selectedLanguage = "Sinhala"
+        }else if (selectedLanguageLocal === "Tanglish") {
+            question = questionInput.value;
+            selectedLanguage = "Tamil"
         } else {
             question = questionInput.value;
             selectedLanguage = selectedLanguageLocal
@@ -1046,6 +1049,7 @@ document
     .getElementById("changeToEnglishButton")
     .addEventListener("click", function () {
         document.getElementById("box1").style.display = "none";
+        document.getElementById("box2").style.display = "none";
         localStorage.setItem("selectedLanguage", "English");
         appendLanguageMessage("Please ask your question in English.");
     });
@@ -1055,6 +1059,7 @@ document
     .getElementById("changeToSinhalaButton")
     .addEventListener("click", function () {
         document.getElementById("box1").style.display = "none";
+        document.getElementById("box2").style.display = "none";
         localStorage.setItem("selectedLanguage", "Sinhala");
         appendLanguageMessage("කරුණාකර ඔබේ ප්‍රශ්නය සිංහලෙන් අසන්න.");
     });
@@ -1064,6 +1069,7 @@ document
     .getElementById("changeToTamilButton")
     .addEventListener("click", function () {
         document.getElementById("box1").style.display = "none";
+        document.getElementById("box2").style.display = "none";
         localStorage.setItem("selectedLanguage", "Tamil");
         appendLanguageMessage("உங்கள் கேள்வியை தமிழில் கேளுங்கள்.");
     });
@@ -1073,9 +1079,20 @@ document
     .getElementById("changeToSinglish")
     .addEventListener("click", function () {
         document.getElementById("box1").style.display = "block";
+        document.getElementById("box2").style.display = "none";
         document.getElementById("question").style.display = "block";
         localStorage.setItem("selectedLanguage", "Singlish");
         appendLanguageMessage("කරුණාකර ඔබේ ප්‍රශ්නය සිංහලෙන් අසන්න.");
+    });
+
+    document
+    .getElementById("changeToTanglish")
+    .addEventListener("click", function () {
+        document.getElementById("box1").style.display = "none";
+        document.getElementById("box2").style.display = "block";
+        document.getElementById("question").style.display = "block";
+        localStorage.setItem("selectedLanguage", "Tanglish");
+        appendLanguageMessage("உங்கள் கேள்வியை தமிழில் கேளுங்கள்.");
     });
 
 // Function to handle rating submission
