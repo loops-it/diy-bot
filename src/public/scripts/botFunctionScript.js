@@ -15,6 +15,36 @@ function setFormattedOpenedTime() {
 setFormattedOpenedTime();
 
 
+// const singlishToSinhala = {
+//     'yaa': 'යා', 'ko': 'කො', 'ho': 'හො', 'a': 'අ', 'aa': 'ආ', 'ae': 'ඇ', 'aee': 'ඈ', 'i': 'ඉ', 'ii': 'ඊ', 'u': 'උ', 'uu': 'ඌ', 
+//     'e': 'එ', 'ee': 'ඒ', 'ai': 'ඓ', 'o': 'ඔ', 'oo': 'ඕ', 'au': 'ඖ', 'k': 'ක', 'kh': 'ඛ', 
+//     'g': 'ග', 'gh': 'ඝ', 'ng': 'ඞ', 'ch': 'ච', 'chh': 'ඡ', 'j': 'ජ', 'jh': 'ඣ', 'ny': 'ඤ', 
+//     't': 'ට', 'tha': 'ඨ', 'da': 'ඩ', 'dha': 'ඪ', 'n': 'ණ', 'th': 'ත', 'd': 'ද', 'dha': 'ධ', 
+//     'na': 'න', 'p': 'ප', 'ph': 'ඵ', 'b': 'බ', 'bh': 'භ', 'm': 'ම', 'y': 'ය', 'r': 'ර', 
+//     'l': 'ල', 'v': 'ව', 'sh': 'ශ', 'ss': 'ෂ', 's': 'ස', 'h': 'හ', 'la': 'ළ', 'f': 'ෆ', 
+
+// };
+
+//         function transliterate() {
+//             let singlishText = document.getElementById('question').value;
+//             let words = singlishText.split(' ');
+//             let transliteratedWords = words.map(word => {
+//                 let sinhalaWord = word;
+//                 const keys = Object.keys(singlishToSinhala).sort((a, b) => b.length - a.length);
+//                 for (const singlish of keys) {
+//                     const sinhala = singlishToSinhala[singlish];
+//                     let regex = new RegExp(singlish, 'g');
+//                     sinhalaWord = sinhalaWord.replace(regex, sinhala);
+//                 }
+//                 return sinhalaWord;
+//             });
+//             document.getElementById('question').value = transliteratedWords.join(' ');
+//         }
+
+//         document.getElementById('question').addEventListener('input', transliterate);
+
+
+
 
 // Define global variables
 let chatHistory = [];
@@ -616,12 +646,22 @@ document
     .getElementById("questionForm")
     .addEventListener("submit", async function (event) {
         event.preventDefault();
+        const selectedLanguageLocal = localStorage.getItem("selectedLanguage");
+        
         const questionInput = document.getElementById("question");
-        const question = questionInput.value;
 
-        document.getElementById("question").value = "";
-
-        const selectedLanguage = localStorage.getItem("selectedLanguage");
+        let question;
+        let selectedLanguage
+        if (selectedLanguageLocal === "Singlish") {
+            question = questionInput.value;
+            selectedLanguage = "Sinhala"
+        } else {
+            question = questionInput.value;
+            selectedLanguage = selectedLanguageLocal
+        }
+        console.log("Question:", question);
+        console.log("selected Language:", selectedLanguage);
+        
         // Add the user's question to the chat history
         chatHistory.push({ role: "user", content: question });
 
@@ -936,6 +976,7 @@ document
                 hideTypingAnimation();
                 // Clear the question input
                 questionInput.value = "";
+                // box2Input.value = "";
                 submitButton.innerHTML = '<i class="bi bi-send"></i>';
                 submitButton.disabled = false;
             } catch (error) {
@@ -976,6 +1017,24 @@ document
     });
 
 
+    // window.addEventListener('load', function() {
+    //     const selectedLanguageLocal = localStorage.getItem("selectedLanguage");
+
+    //     const questionInput = document.getElementById("question");
+    //     const box2Input = document.getElementById("box2");
+
+    //     if (selectedLanguageLocal === "Singlish") {
+    //         questionInput.style.display = "none";
+    //         box2Input.style.display = "block";
+    //         box2Input.required = true;
+    //         questionInput.required = false;
+    //     } else {
+    //         questionInput.style.display = "block";
+    //         box2Input.style.display = "none";
+    //         questionInput.required = true;
+    //         box2Input.required = false;
+    //     }
+    // });
 
 
 
@@ -986,6 +1045,7 @@ document
 document
     .getElementById("changeToEnglishButton")
     .addEventListener("click", function () {
+        document.getElementById("box1").style.display = "none";
         localStorage.setItem("selectedLanguage", "English");
         appendLanguageMessage("Please ask your question in English.");
     });
@@ -994,6 +1054,7 @@ document
 document
     .getElementById("changeToSinhalaButton")
     .addEventListener("click", function () {
+        document.getElementById("box1").style.display = "none";
         localStorage.setItem("selectedLanguage", "Sinhala");
         appendLanguageMessage("කරුණාකර ඔබේ ප්‍රශ්නය සිංහලෙන් අසන්න.");
     });
@@ -1002,8 +1063,19 @@ document
 document
     .getElementById("changeToTamilButton")
     .addEventListener("click", function () {
+        document.getElementById("box1").style.display = "none";
         localStorage.setItem("selectedLanguage", "Tamil");
         appendLanguageMessage("உங்கள் கேள்வியை தமிழில் கேளுங்கள்.");
+    });
+
+
+document
+    .getElementById("changeToSinglish")
+    .addEventListener("click", function () {
+        document.getElementById("box1").style.display = "block";
+        document.getElementById("question").style.display = "block";
+        localStorage.setItem("selectedLanguage", "Singlish");
+        appendLanguageMessage("කරුණාකර ඔබේ ප්‍රශ්නය සිංහලෙන් අසන්න.");
     });
 
 // Function to handle rating submission
