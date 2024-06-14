@@ -39,7 +39,7 @@ export const chatFlowResponse = async (
     res: Response
 ) => {
     // console.log("req : ", req.body.chatId)
-    const index = pc.index("dfccchatbot");
+    const index = pc.index("botdb");
     const namespace = index.namespace("pinecone-gpt-test");
     //pinecone-gpt-test
 

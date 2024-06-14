@@ -116,7 +116,7 @@ export const chatControllerFacebookNew = async (req: RequestWithChatId, res: Res
 
     
     async function getAnswerFromDocuments(chatHistory,translatedQuestion,language) {
-        const index = pc.index("dfccchatbot");
+        const index = pc.index("botdb");
         const namespace = index.namespace('pinecone-gpt-test');
         const lastUserIndex = chatHistory.map((entry: ChatEntry) => entry.role).lastIndexOf('user');
             if (lastUserIndex !== -1) {

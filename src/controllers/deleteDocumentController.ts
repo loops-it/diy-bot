@@ -11,7 +11,7 @@ const pc = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
 
 export const deleteDocument = async (req: Request, res: Response) => {
     const id = req.query.id;
-    const index = pc.index("dfccchatbot")
+    const index = pc.index("botdb")
     const ns = index.namespace('pinecone-gpt-test')
     await ns.deleteOne(`${id}`);
 

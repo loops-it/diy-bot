@@ -21,7 +21,7 @@ interface ChatEntry {
     content: string;
 }
 
-const index = pc.index("dfccchatbot");
+const index = pc.index("botdb");
 const namespace = index.namespace('pinecone-gpt-test')
 let kValue = 2
 
