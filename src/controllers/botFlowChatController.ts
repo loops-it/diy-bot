@@ -307,6 +307,41 @@ export const chatFlowResponse = async (
 
                 const chatHistoryString = JSON.stringify(filteredChatHistory);
 
+
+
+                // let chatHistorySummery = ""
+// const lastMessage = chatHistory.slice(-1);
+// let chatHistorySummery = JSON.stringify(lastMessage);
+// console.log("last message : ", chatHistorySummery)
+//         // ---------------------------------
+//         const chathistorySummeryPrompt = `Summerize given CHAT HISTORY into maximum 100 words.
+// ----------
+// CHAT HISTORY: {${chatHistoryString}}
+// ----------
+// Summery:`;
+
+//         console.log("questionRephrasePrompt: ", chathistorySummeryPrompt);
+
+//         const Summery = await openai.completions.create({
+//           model: "gpt-3.5-turbo-instruct",
+//           prompt: chathistorySummeryPrompt,
+//           max_tokens: 50,
+//           temperature: 0,
+//         });
+
+//         console.log(
+//             "Summery :",
+//             Summery.choices[0].text
+//           );
+        //   chatHistorySummery = Summery.choices[0].text
+        // -----------------------------------------------------------
+
+
+
+
+
+
+
                 const questionRephrasePrompt = `As a senior banking assistant, kindly assess whether the FOLLOWUP QUESTION related to the CHAT HISTORY or if it introduces a new question. If the FOLLOWUP QUESTION is unrelated, refrain from rephrasing it. However, if it is related, please rephrase it as an independent query utilizing relevent keywords from the CHAT HISTORY, even if it is a question related to the calculation. If the user asks for information like email or address, provide DFCC email and address.
 ----------
 CHAT HISTORY: {${chatHistoryString}}
