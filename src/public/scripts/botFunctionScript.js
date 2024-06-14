@@ -364,7 +364,7 @@ function setFormattedOpenedTime() {
         const dataSwitchAgent = await switchResponse.json();
         console.log("switch res : ", dataSwitchAgent);
         if (dataSwitchAgent.status === "success") {
-          showAlert(`One of our agents will join you soon. we have ${dataSwitchAgent.queued_chats} Please stay tuned.`);
+          showAlert(`One of our agents will join you soon. we have ${dataSwitchAgent.queued_chats} chats to continue. Please stay tuned.`);
           chatWithAgent = true;
           startCheckingForAgent(data);
         } else {
